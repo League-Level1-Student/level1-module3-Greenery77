@@ -53,7 +53,7 @@ public class RobotInAJar {
 	 * Select the robot.jar file, then add it to the build path, apply and close.
 	 */
 	
-	/* 6. Now if you hover your mouse over the word Robot, you will se anew option from the "quick fix" list: 
+	/* 6. Now if you hover your mouse over the word Robot, you will see a new option from the "quick fix" list: 
 	 * 				Import 'Robot (org.jointheleague.graphical.robot.Robot)
 	 * Select it. If all the red lines have disappeared, you can now complete the draw method below.
 	 * Run the program from the RobotInAJarRunner class and a shape should be drawn.
@@ -61,6 +61,15 @@ public class RobotInAJar {
 	
 	public void draw() {
 		/*** Write code to make your robot draw a shape here ****/
+		
+		rob.penDown();
+		rob.setPenColor(0, 0, 100);
+		for (int i = 0; i < 4; i++) {
+			
+			rob.move(50);
+			rob.turn(90);
+			
+		}
 		
 		
 	}

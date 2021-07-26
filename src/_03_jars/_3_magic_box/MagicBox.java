@@ -15,6 +15,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -52,6 +53,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 
 	private void createUI() {
 		JFrame frame = new JFrame("The Magic Box contains many secrets...");
+		frame.addMouseListener(this);
 		frame.add(this);
 		setPreferredSize(new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight()));
 		frame.pack();
@@ -75,8 +77,24 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+
+		 System.out.println(e.getX() + "," + e.getY());
+
+		if (e.getX() == 198 && e.getY() == 550) {
+
+			JOptionPane.showMessageDialog(null, "hi :D");
+
+		}
+		if (e.getX() == 189 && e.getY() == 859) {
+
+			JOptionPane.showMessageDialog(null, "hello :)");
+
+		}
+		if (e.getX() == 353 && e.getY() == 658) {
+
+			JOptionPane.showMessageDialog(null, "door");
+
+		}
 	}
 
 	@Override

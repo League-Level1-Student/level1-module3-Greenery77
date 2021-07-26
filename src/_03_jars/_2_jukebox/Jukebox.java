@@ -5,6 +5,8 @@ package _03_jars._2_jukebox;
  */
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -24,8 +26,12 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 /*   If you don't have javazoom.jar in your project, you can download it from here: http://bit.ly/javazoom
  *   Right click your project and add it as a JAR (Under Java Build Path > Libraries).*/
 
-public class Jukebox implements Runnable {
-
+public class Jukebox implements Runnable, ActionListener {
+	
+	JButton sweden = new JButton();
+	
+	JButton imagine = new JButton();
+	
     public void run() {
 
 		// 1. Find an mp3 on your computer or on the Internet.
@@ -46,10 +52,7 @@ public class Jukebox implements Runnable {
 		 * that was selected.
 		 */
     	
-    	public actionListener() {
-    		
-    		
-    	}
+    
     	
     	JFrame frame = new JFrame();
     	
@@ -57,15 +60,13 @@ public class Jukebox implements Runnable {
     	
     	JPanel panel = new JPanel();
     	
-    	JButton imagine = new JButton();
-    	
     	imagine.setLabel("Imagine");
     	
-    	JButton sweden = new JButton();
+    	imagine.addActionListener(this);
     	
     	sweden.setLabel("Sweden");
     	
-    	sweden.addAncestorListener(null);
+    	sweden.addActionListener(this);
     	
     	panel.add(sweden);
     	
@@ -83,6 +84,23 @@ public class Jukebox implements Runnable {
 		URL imageURL = getClass().getResource(fileName);
 		Icon icon = new ImageIcon(imageURL);
 		return new JLabel(icon);
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		if (e.getSource() == sweden) {
+		
+		JOptionPane.showMessageDialog(null, "Insert song Sweden - C418");
+		
+		}
+		
+		else if (e.getSource() == imagine) {
+			
+			JOptionPane.showMessageDialog(null, "Insert song Imagine - JL");
+			
+			}
 	}
 
 }
